@@ -1,0 +1,13 @@
+This folder contains all the solutions that I referred to during the workshop. It also contains a db file with the final resulting database. Use these to compare to your solutions.
+
+A number of you after the workshop came to me with errors in your view codes where you copied the code I wrote in class exactly but were getting an error along the lines of "Unknown Column CRNCR". 
+
+This is caused by an option in the import csv function of DB Browser. If you are experiencing this bug, go into your Database Structure and delete "STAC62_RAW" from your database and re-import it from CSV but make sure that the option directly under Table Name called "Column names in first line" is checked. This will let SQL recognize the first line of the csv as the column names.
+
+For those of you who want more practice with SQL and data engineering, I propose the following two additional exercises.
+
+Exercise 1: Currently, the ACORN.sql file that generates the ACORN view uses around 15 CASE WHEN statements to convert number grades to letter grades. Replace this with a JOIN onto a mapping table that stores the conversion. (HINT: Rather than deal with decimals, you can define your join on a rounded version of your StudentAverage)
+
+Exercise 2: The design we set up for the ACORN has the highest level of granularity at the Student-Class level. This means that the combination of Student and Class forms a unique primary key for the ACORN view. How can we modify our data to store multiple semesters?
+(HINT1: We will need to add new columns to all our tables and views)
+(HINT2: While we do not have data labelled with semesters, there's nothing stopping us from assigning them randomly)
